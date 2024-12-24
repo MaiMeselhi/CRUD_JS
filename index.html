@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD operations</title>
+    <link rel="stylesheet" href="./assets/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>   
+
+    <script src="./assets/js/index.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="w-50 mx-auto">
+            <h1 class="fw-bolder text-primary text-center my-5 text-capitalize">
+             product Mangement system
+            </h1> 
+            <!--inputs-->
+            <div class="form-floating mb-3">
+             <input type="text" class="form-control" id="productName" placeholder="Proudct Name">
+             <label for="floatingInput">Product Name</label>
+           </div>
+           <div class="alert alert-danger d-none" id="nameError" oninput="productNameValidation()">product must start with uppercase</div>
+           <div class="form-floating mb-3">
+             <input type="text" class="form-control" id="productPrice" placeholder="Price">
+             <label for="floatingInput">Product Price</label>
+           </div>
+           <div class="form-floating mb-3">
+             <input type="text" list="gategoryList" class="form-control" id="productGategory" placeholder="gategory">
+             <label for="floatingInput">Product Category</label>
+             <datalist id="gategoryList">
+                 <option>Phone</option>
+                 <option>TV</option>
+                 <option>Electronics</option>
+                 <option>Tablets</option>
+             </datalist>
+           </div>
+           <div class="form-floating mb-3">
+             <textarea type="text" class="form-control" id="productDesription" placeholder="productDesription"></textarea>
+             <label for="floatingInput">Product Description</label>
+           </div>
+           <div class="form-floating mb-3">
+             <input type="file" class="form-control" id="productImage" placeholder="productImage">
+             <label for="floatingInput">Product Image</label>
+           </div>
+     
+           <button id="addBtn" class="btn btn-outline-primary" onclick="addProduct()">Add To Cart</button>
+           <button id="updateBtn" class="btn bt n-outline-warning d-none" onclick="updateProduct()">Update Product</button>
+  
+         </div>
+    </div>
+    <!--display inputs-->
+    <div class="container">
+        <div class="w-75 mx-auto">
+          <h3 class="my-3 text-primary text-center">Search Products</h3>
+          <div class="form-floating mb-3">
+            <input type="search" oninput="searchProducts()" class="form-control" id="searchProduct" placeholder="Search Product">
+            <label for="floatingInput">Search Product</label>
+          </div>
+
+            <h3 class="my-3 text-primary text-center">Available Inputs</h3>
+           <div class="row"id="productsRow">
+            <div class="col-md-3">
+                <img src="./assets/images/iphone12.jpg" class="w-100" alt="iphone12"/>
+                <p>product name</p>
+                <p>product price</p>
+                <p>product categogry</p>
+                <p>product description</p>
+                <button class="btn btn-outline-success w-100">update</button>
+                <button class="btn btn-outline-danger  my-3 w-100 ">delete</button>
+            </div>
+           </div>
+    </div>
+    </div>
+    <!--end diplay inputs-->
+</body>
