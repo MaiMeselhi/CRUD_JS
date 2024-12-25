@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="./assets/css/fontawesome.min.css" />
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <script src="./assets/js/bootstrap.bundle.min.js"></script>   
-
+    <script src="./assets/js/dom.js" ></script>
+    <script src="./assets/js/elements.js" ></script>
+    <script src="./assets/js/crud_operations.js" ></script>
     <script src="./assets/js/index.js" defer></script>
 </head>
 <body>
@@ -20,7 +21,7 @@
             </h1> 
             <!--inputs-->
             <div class="form-floating mb-3">
-             <input type="text" class="form-control" id="productName" placeholder="Proudct Name">
+             <input type="text" class="form-control" id="productName" placeholder="Proudct Name" >
              <label for="floatingInput">Product Name</label>
            </div>
            <div class="alert alert-danger d-none" id="nameError" oninput="productNameValidation()">product must start with uppercase</div>
@@ -33,7 +34,7 @@
              <label for="floatingInput">Product Category</label>
              <datalist id="gategoryList">
                  <option>Phone</option>
-                 <option>TV</option>
+                 <option>TV</option>s
                  <option>Electronics</option>
                  <option>Tablets</option>
              </datalist>
@@ -47,7 +48,8 @@
              <label for="floatingInput">Product Image</label>
            </div>
      
-           <button id="addBtn" class="btn btn-outline-primary" onclick="addProduct()">Add To Cart</button>
+           <button id="addBtn" class="btn btn-outline-primary" onclick="crudOprtaions.addProduct()">Add Product
+          </button>
            <button id="updateBtn" class="btn bt n-outline-warning d-none" onclick="updateProduct()">Update Product</button>
   
          </div>
@@ -75,5 +77,5 @@
            </div>
     </div>
     </div>
-    <!--end diplay inputs-->
+    <!--end display inputs-->
 </body>
