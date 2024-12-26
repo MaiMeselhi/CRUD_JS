@@ -25,6 +25,8 @@ const dom = {
         elements.productCategory =dom.$('#productGategory');
         elements.productDescription =dom.$('#productDesription');
         elements.productImage=dom.$('#productImage');
+        elements.addProductBtn =dom.$('#addBtn');
+        elements.updateProductBtn =dom.$('#updateBtn');
 
     },
   

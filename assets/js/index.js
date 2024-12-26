@@ -2,6 +2,7 @@
 
 const init = () => {
     dom.mapping();
+    crudOprtaions.ProductListEmptyOrNot();
     dom.appendEventListeners();
 }
 
