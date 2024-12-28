@@ -29,20 +29,27 @@ const crudOprtaions = {
     crudOprtaions.saveToLocalStorage();
   },
   //function to display products
-  displayProducts(pList) {
-    let productsContainer = "";
-    for (let i = 0; i < pList.length; i++) {
-      productsContainer += `<div class="col-md-4 ">
-                <img src="./assets/images/${pList[i].image}" class="w-75 h-25" alt="iphone12"/>
-                <p>product name: ${pList[i].name}</p>
-                <p>product price: ${pList[i].price}</p>
-                <p>product categogry: ${pList[i].category}</p>
-                <p>product description: ${pList[i].description}</p>
-                <button onclick="crudOprtaions.setFormToUpdateProduct(${i})" class="btn btn-outline-success w-100 ">update</button>
-                <button onClick="crudOprtaions.deleteProduct(${i})"     class="btn btn-outline-danger  my-3 w-100 ">delete</button>
-            </div>`;
+  displayProducts(pList,searchTerm=0) {
+    //check if plist empty or not
+    if(pList.length > 0){
+      let productsContainer = "";
+      for (let i = 0; i < pList.length; i++) {
+        productsContainer += `<div class="col-md-4 ">
+                  <img src="./assets/images/${pList[i].image}" class="w-75 h-25" alt="iphone12"/>
+                  <p>product name: ${searchTerm?pList[i].name.toLowerCase().replace(searchTerm,`<span class="text-danger fs-4">${searchTerm}</span>`):pList[i].name}</p>
+                  <p>product price: ${pList[i].price}</p>
+                  <p>product categogry: ${pList[i].category}</p>
+                  <p>product description: ${pList[i].description}</p>
+                  <button onclick="crudOprtaions.setFormToUpdateProduct(${i})" class="btn btn-outline-success w-100 ">update</button>
+                  <button onClick="crudOprtaions.deleteProduct(${i})"     class="btn btn-outline-danger  my-3 w-100 ">delete</button>
+              </div>`;
+      }
+      elements.productsRow.innerHTML = productsContainer;
     }
-    elements.productsRow.innerHTML = productsContainer;
+    else{
+      elements.productsRow.innerHTML =`<div class="alert alert-danger text-center"> No Match Found </div>`
+    }
+   
   },
   //function to clear inputsfields
   clearInputsFields(){
@@ -50,7 +57,7 @@ const crudOprtaions = {
     elements.productPrice.value         =null;
     elements.productCategory.value      =null;
     elements.productDescription.value   =null;
-    elements.productImage.value          =null;
+    elements.productImage.value         =null;
   },
   //function to delete product
   deleteProduct(index){
@@ -91,5 +98,26 @@ const crudOprtaions = {
   elements.updateProductBtn.classList.add("d-none");
   //clear inputs fields
   crudOprtaions.clearInputsFields();
+ },
+ searchProducts(){
+
+  //search by productsName
+  const searchList = [];
+  let searchTerm = elements.searchProducts.value;
+  for(let i=0; i<productList.length;i++)
+  {
+    if(productList[i].name.toLowerCase().includes(searchTerm.toLowerCase()))
+    {
+       searchList.push(productList[i]);
+
+    }
+    else{
+
+    }
+
+    crudOprtaions.displayProducts(searchList,searchTerm);  
+
+  }
+  
  }
 };

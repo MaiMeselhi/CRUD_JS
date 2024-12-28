@@ -27,6 +27,7 @@ const dom = {
         elements.productImage=dom.$('#productImage');
         elements.addProductBtn =dom.$('#addBtn');
         elements.updateProductBtn =dom.$('#updateBtn');
+        elements.searchProducts= dom.$('#searchProducts');
 
     },
   
