@@ -28,6 +28,10 @@ const dom = {
         elements.addProductBtn =dom.$('#addBtn');
         elements.updateProductBtn =dom.$('#updateBtn');
         elements.searchProducts= dom.$('#searchProducts');
+        elements.nameError=dom.$('#nameError');
+        elements.emptyError=dom.$('#emptyError');
+        elements.searchCategory=dom.$('#searchCategory');
+
 
     },
   

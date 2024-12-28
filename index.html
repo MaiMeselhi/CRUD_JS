@@ -11,6 +11,8 @@
     <script src="./assets/js/dom.js" ></script>
     <script src="./assets/js/elements.js" ></script>
     <script src="./assets/js/crud_operations.js" ></script>
+    <script src="./assets/js/inputs-validation.js" ></script>
+
     <script src="./assets/js/index.js" defer></script>
 </head>
 <body>
@@ -24,7 +26,9 @@
              <input type="text" class="form-control" id="productName" placeholder="Proudct Name" >
              <label for="floatingInput">Product Name</label>
            </div>
-           <div class="alert alert-danger d-none" id="nameError" oninput="productNameValidation()">product must start with uppercase</div>
+           <div class="alert alert-danger d-none" id="emptyError" oninput="inputsValidation.emptyProductNameValidation()">please fill product name</div>
+
+           <div class="alert alert-danger d-none" id="nameError" oninput="inputsValidation.productNameValidation()">product must start with uppercase</div>
            <div class="form-floating mb-3">
              <input type="text" class="form-control" id="productPrice" placeholder="Price">
              <label for="floatingInput">Product Price</label>
@@ -59,10 +63,13 @@
         <div class="w-75 mx-auto">
           <h3 class="my-3 text-primary text-center">Search Products</h3>
           <div class="form-floating mb-3">
-            <input type="search" oninput="crudOprtaions.searchProducts()" class="form-control" id="searchProducts" placeholder="Search Product">
+            <input type="search" oninput="crudOprtaions.searchProducts()" class="form-control" id="searchProducts" placeholder="Search by Product Name">
             <label for="floatingInput">Search Product</label>
           </div>
-
+          <div class="form-floating mb-3">
+            <input type="search" oninput="crudOprtaions.searchCategory()" class="form-control" id="searchCategory" placeholder="Search by Category">
+            <label for="floatingInput">Search by Category</label>
+          </div>
             <h3 class="my-3 text-primary text-center">Available Inputs</h3>
            <div class="row productsRow" id="productsRow">
             <!-- <div class="col-md-3">
